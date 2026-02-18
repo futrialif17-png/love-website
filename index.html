@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Kamu, Cintaku ❤️</title>
+
+  <!-- Font & Style -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      padding: 50px 20px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    header h1 {
+      font-size: 2.4em;
+      margin-bottom: 10px;
+      color: #e84393;
+    }
+
+    header p {
+      font-size: 1.1em;
+    }
+
+    .foto {
+      margin: 20px auto;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid #ffb6c1;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 30px 15px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 25px 20px;
+      margin: 20px 0;
+      border-radius: 18px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      color: #fd79a8;
+      margin-bottom: 10px;
+      font-size: 1.4em;
+    }
+
+    button {
+      background: #e84393;
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 25px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #d63076;
+    }
+
+    footer {
+      background: rgba(255,255,255,0.9);
+      padding: 20px;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+
+    /* Mobile Friendly */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .foto {
+        width: 160px;
+        height: 160px;
+      }
+    }
+
+    .play-music {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Musik -->
+  <audio id="music" loop>
+    <source src="https://dl.sndup.net/7xsk/Sempurna%20-%20Andra%20and%20The%20BackBone.mp3" type="audio/mpeg">
+  </audio>
+
+  <header>
+    <h1>Untuk Kamu, Cintaku ❤️</h1>
+    <p>Website kecil ini aku buat khusus untukmu</p>
+
+    <!-- Foto -->
+    <div class="foto">
+      <img src="IMG_4580.jpg" alt="Foto Kita">
+    </div>
+
+    <div class="play-music">
+      <button onclick="playMusic()">▶️ Putar Lagu</button>
+    </div>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>💖 Kalimat Romantis</h2>
+      <p id="romantis">Kamu adalah alasan kenapa aku selalu tersenyum setiap hari.</p>
+      <br>
+      <button onclick="gantiRomantis()">Pesan Romantis 💕</button>
+    </div>
+
+    <div class="card">
+      <h2>🌟 Kalimat Penyemangat</h2>
+      <p id="semangat">Aku percaya kamu bisa melewati semua ini. Jangan menyerah ya.</p>
+      <br>
+      <button onclick="gantiSemangat()">Semangat Baru ✨</button>
+    </div>
+
+    <div class="card">
+      <h2>💌 Pesan Dariku</h2>
+      <p>
+        Terima kasih sudah selalu ada buat aku ❤️<br>
+        Semoga kita bisa terus bersama,<br>
+        saling mendukung dan tumbuh bersama.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    Dibuat dengan cinta oleh 💖 Kamu
+  </footer>
+
+  <script>
+    const romantis = [
+      "Aku jatuh cinta padamu setiap hari, tanpa alasan, tanpa henti.",
+      "Dunia terasa lebih indah sejak kamu ada di hidupku.",
+      "Pelukmu adalah tempat ternyaman bagiku.",
+      "Aku tidak butuh apa pun selain kamu di sisiku.",
+      "Kamu adalah doa terindah yang dikabulkan Tuhan.",
+      "Bersamamu, hidupku terasa sempurna."
+    ];
+
+    const semangat = [
+      "Kamu lebih kuat dari yang kamu kira 💪",
+      "Jangan menyerah, aku selalu mendukungmu ❤️",
+      "Setiap langkahmu luar biasa 🌟",
+      "Aku bangga dengan semua usahamu 😘",
+      "Terus maju, aku di sampingmu 🤍"
+    ];
+
+    function gantiRomantis() {
+      const random = Math.floor(Math.random() * romantis.length);
+      document.getElementById("romantis").innerText = romantis[random];
+    }
+
+    function gantiSemangat() {
+      const random = Math.floor(Math.random() * semangat.length);
+      document.getElementById("semangat").innerText = semangat[random];
+    }
+
+    function playMusic() {
+      const music = document.getElementById("music");
+      music.play();
+    }
+
+    // Auto play after user interaction
+    document.body.addEventListener('click', function(){
+      document.getElementById('music').play();
+    }, { once: true });
+  </script>
+
+</body>
+</html>
